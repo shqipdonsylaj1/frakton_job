@@ -6270,11 +6270,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\IdentityAPI\\IdentityAPI.csproj",
+      "projectUniqueName": "C:\\src\\frakton_job\\FraktonJob\\API\\IdentityAPI\\IdentityAPI.csproj",
       "projectName": "IdentityAPI",
-      "projectPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\IdentityAPI\\IdentityAPI.csproj",
+      "projectPath": "C:\\src\\frakton_job\\FraktonJob\\API\\IdentityAPI\\IdentityAPI.csproj",
       "packagesPath": "C:\\Users\\User-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\IdentityAPI\\obj\\",
+      "outputPath": "C:\\src\\frakton_job\\FraktonJob\\API\\IdentityAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6290,8 +6290,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj"
+            "C:\\src\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\src\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

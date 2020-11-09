@@ -6261,11 +6261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\SignInAPI\\SignInAPI.csproj",
+      "projectUniqueName": "C:\\src\\frakton_job\\FraktonJob\\API\\SignInAPI\\SignInAPI.csproj",
       "projectName": "SignInAPI",
-      "projectPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\SignInAPI\\SignInAPI.csproj",
+      "projectPath": "C:\\src\\frakton_job\\FraktonJob\\API\\SignInAPI\\SignInAPI.csproj",
       "packagesPath": "C:\\Users\\User-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\API\\SignInAPI\\obj\\",
+      "outputPath": "C:\\src\\frakton_job\\FraktonJob\\API\\SignInAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6281,11 +6281,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Core\\Core.csproj": {
-              "projectPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Core\\Core.csproj"
+            "C:\\src\\frakton_job\\FraktonJob\\Core\\Core.csproj": {
+              "projectPath": "C:\\src\\frakton_job\\FraktonJob\\Core\\Core.csproj"
             },
-            "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\src\\.NetCore\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj"
+            "C:\\src\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\src\\frakton_job\\FraktonJob\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
