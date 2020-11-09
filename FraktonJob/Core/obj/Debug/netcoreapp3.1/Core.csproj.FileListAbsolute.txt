@@ -1,0 +1,9 @@
+C:\src\.NetCore\frakton_job\FraktonJob\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+C:\src\.NetCore\frakton_job\FraktonJob\Core\bin\Debug\netcoreapp3.1\Core.dll
+C:\src\.NetCore\frakton_job\FraktonJob\Core\bin\Debug\netcoreapp3.1\Core.pdb
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.dll
+C:\src\.NetCore\frakton_job\FraktonJob\Core\obj\Debug\netcoreapp3.1\Core.pdb
