@@ -1,0 +1,6 @@
+{
+  "certificateSettings": {
+    "CertPath": "cert\\localhost.pfx",
+    "CertPass": "51499"
+  }
+}

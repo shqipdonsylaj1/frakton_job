@@ -2,26 +2,25 @@ using AutoMapper;
 using IdentityAPI.Extensions;
 using Infrastructure.Extensions;
 using Infrastructure.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using ProMaker.Arch.Helpers;
 using ProMaker.Arch.ITokenServices;
 using ProMaker.Arch.Middleware;
 using ProMaker.Arch.TokenServices;
-using System.Text;
 
 namespace IdentityAPI
 {
     public class Startup
     {
-        public IConfiguration _config { get; }
+        public IConfiguration Config { get; }
         public Startup(IConfiguration configuration)
         {
-            _config = configuration;
+            Config = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -30,12 +29,24 @@ namespace IdentityAPI
             services.AddControllers();
             services.AddDbContext<AppIdentityDbContext>(x =>
             {
-                x.UseSqlServer(_config.GetConnectionString("FraktonIdentityConnection"));
+                x.UseSqlServer(Config.GetConnectionString("FraktonIdentityConnection"));
             });
             services.AddScoped<ITokenService, TokenService>();
             services.AddAutoMapper(typeof(MappingProfiles));
-            JWTExtension.SetupAuth(services, _config);
+            JWTExtension.SetupAuth(services, Config);
             services.AddIdentityServices();
+            services.AddMvc(x =>
+            {
+                x.SslPort = 6003;
+                x.Filters.Add(new RequireHttpsAttribute());
+            });
+            services.AddAntiforgery(x =>
+            {
+                x.Cookie.Name = "_af";
+                x.Cookie.HttpOnly = true;
+                x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                x.HeaderName = "X-XSRF-TOKEN";
+            });
         }
         public void Configure(IApplicationBuilder app)
         {

@@ -1,6 +1,8 @@
 using Infrastructure.Extensions;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,21 +15,33 @@ namespace SignInAPI
 {
     public class Startup
     {
-        public IConfiguration _config { get; }
+        public IConfiguration Config { get; }
         public Startup(IConfiguration configuration)
         {
-            _config = configuration;
+            Config = configuration;
         }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddDbContext<AppIdentityDbContext>(x =>
             {
-                x.UseSqlServer(_config.GetConnectionString("FraktonIdentityConnection"));
+                x.UseSqlServer(Config.GetConnectionString("FraktonIdentityConnection"));
             });
             services.AddScoped<ITokenService, TokenService>();
-            JWTExtension.SetupAuth(services, _config);
+            JWTExtension.SetupAuth(services, Config);
             services.AddIdentityServices();
+            services.AddMvc(x =>
+            {
+                x.SslPort = 6005;
+                x.Filters.Add(new RequireHttpsAttribute());
+            });
+            services.AddAntiforgery(x =>
+            {
+                x.Cookie.Name = "_af";
+                x.Cookie.HttpOnly = true;
+                x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                x.HeaderName = "X-XSRF-TOKEN";
+            });
         }
         public void Configure(IApplicationBuilder app)
         {

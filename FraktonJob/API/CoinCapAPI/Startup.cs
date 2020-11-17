@@ -1,5 +1,7 @@
 using CoinCapAPI.Helpers;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProMaker.Arch.Helpers;
@@ -11,17 +13,29 @@ namespace CoinCapAPI
 {
     public class Startup
     {
-        public IConfiguration _config { get; }
+        public IConfiguration Config { get; }
         public Startup(IConfiguration configuration)
         {
-            _config = configuration;
+            Config = configuration;
         }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<AssetsExtensions>();
-            JWTExtension.SetupAuth(services, _config);
+            JWTExtension.SetupAuth(services, Config);
+            services.AddMvc(x =>
+            {
+                x.SslPort = 6007;
+                x.Filters.Add(new RequireHttpsAttribute());
+            });
+            services.AddAntiforgery(x =>
+            {
+                x.Cookie.Name = "_af";
+                x.Cookie.HttpOnly = true;
+                x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                x.HeaderName = "X-XSRF-TOKEN";
+            });
         }
         public void Configure(IApplicationBuilder app)
         {
