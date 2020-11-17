@@ -3,7 +3,8 @@
   "profiles": {
     "SignInAPI": {
       "commandName": "Project",
-      "applicationUrl": "https://localhost:6005;http://localhost:6004",
+      "externalUrlConfiguration": true,
+      //"applicationUrl": "https://localhost:6005;http://localhost:6004",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

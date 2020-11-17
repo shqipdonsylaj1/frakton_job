@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using ProMaker.Arch.Helpers;
+using System.IO;
+using System.Net;
 
 namespace CoinCapAPI
 {
@@ -11,9 +14,25 @@ namespace CoinCapAPI
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+            .ConfigureServices((context, services) =>
+            {
+                HostConfigExtensions.CertPath = context.Configuration["CertPath"];
+                HostConfigExtensions.CertPassword = context.Configuration["CertPassword"];
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                var host = Dns.GetHostEntry("coincap.io");
+                webBuilder.ConfigureKestrel(serverOptions =>
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    serverOptions.Listen(host.AddressList[0], 6006);
+                    serverOptions.Listen(host.AddressList[0], 6007, listOpt =>
+                    {
+                        listOpt.UseHttps(HostConfigExtensions.CertPath, HostConfigExtensions.CertPassword);
+                    });
+                })
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseKestrel()
+                .UseStartup<Startup>();
+            });
     }
 }

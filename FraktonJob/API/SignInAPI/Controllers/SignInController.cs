@@ -6,6 +6,9 @@ using ProMaker.Arch.Helpers;
 using ProMaker.Arch.ITokenServices;
 using SignInAPI.DTO;
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace SignInAPI.Controllers
@@ -22,6 +25,7 @@ namespace SignInAPI.Controllers
         public SignInController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+            _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
             _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
             _tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
         }

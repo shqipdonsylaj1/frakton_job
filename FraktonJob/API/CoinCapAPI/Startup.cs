@@ -1,10 +1,5 @@
-
-
-using CoinCapAPI.DTO;
 using CoinCapAPI.Helpers;
-using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProMaker.Arch.Helpers;
@@ -26,9 +21,9 @@ namespace CoinCapAPI
             services.AddControllers();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<AssetsExtensions>();
-            services.AddJWTServices();
+            JWTExtension.SetupAuth(services, _config);
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseStatusCodePagesWithReExecute("/errors/{0}");

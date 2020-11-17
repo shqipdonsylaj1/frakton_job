@@ -1,7 +1,6 @@
 using Infrastructure.Extensions;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,10 +26,10 @@ namespace SignInAPI
                 x.UseSqlServer(_config.GetConnectionString("FraktonIdentityConnection"));
             });
             services.AddScoped<ITokenService, TokenService>();
-            services.AddJWTServices();
+            JWTExtension.SetupAuth(services, _config);
             services.AddIdentityServices();
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseStatusCodePagesWithReExecute("/errors/{0}");

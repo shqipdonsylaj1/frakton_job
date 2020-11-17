@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	  <UserSecretsId>e42a762f-4b76-4786-b62e-f0eab9d2fcc5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
@@ -15,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Infrastructure">
-      <HintPath>..\..\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="ProMaker.Arch">
       <HintPath>..\..\Binaris\ProMaker.Arch.dll</HintPath>
     </Reference>

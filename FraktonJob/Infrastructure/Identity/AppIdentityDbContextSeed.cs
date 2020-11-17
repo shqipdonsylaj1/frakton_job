@@ -1,6 +1,5 @@
 ﻿using Core.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Internal;
 using System.Linq;
 using System.Threading.Tasks;
 
