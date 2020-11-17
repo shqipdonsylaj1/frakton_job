@@ -6,9 +6,6 @@ using ProMaker.Arch.Helpers;
 using ProMaker.Arch.ITokenServices;
 using SignInAPI.DTO;
 using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace SignInAPI.Controllers

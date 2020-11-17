@@ -73,3 +73,5 @@ C:\src\.NetCore\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\s
 C:\src\.NetCore\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\IdentityAPI.dll
 C:\src\.NetCore\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\IdentityAPI.pdb
 C:\src\.NetCore\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\IdentityAPI.genruntimeconfig.cache
+C:\src\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\IdentityAPI.dll
+C:\src\frakton_job\FraktonJob\API\IdentityAPI\obj\Debug\netcoreapp3.1\IdentityAPI.pdb
